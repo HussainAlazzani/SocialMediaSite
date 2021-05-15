@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Icon, Item, Segment } from 'semantic-ui-react';
 import { Activity } from '../../../app/models/activity';
-import { format } from 'date-fns';
+import {format} from 'date-fns';
 
 interface Props {
     activity: Activity
@@ -36,7 +36,7 @@ export default function ActivityListItem({ activity }: Props) {
             </Segment>
             <Segment clearing>
                 <span>{activity.description}</span>
-                <Button
+                <Button 
                     as={Link}
                     to={`/activities/${activity.id}`}
                     color='teal'
