@@ -1,5 +1,7 @@
 using Application.Activities;
 using Application.Core;
+using Application.Interfaces;
+using Infrastructure.Security;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -39,8 +41,8 @@ namespace API.Extensions
             // Adding mediator as a service to be injected in the controller.
             // We must specify where our mediator handler is located, ie. in which assembly.
             services.AddMediatR(typeof(List.Handler).Assembly);
-
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
+            services.AddScoped<IUserAccessor, UserAccessor>();
 
             return services;
         }
